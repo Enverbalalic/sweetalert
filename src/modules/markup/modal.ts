@@ -2,24 +2,22 @@ import CLASS_NAMES from '../class-list';
 
 const {
   MODAL,
-  X_BUTTON
+  X_BUTTON,
 } = CLASS_NAMES;
 
-export const modalMarkup: string =`
-  <div class="${MODAL}" role="dialog" aria-modal="true">` +
+export const modalMarkup: string = `
+  <div class="${MODAL}" role="dialog" aria-modal="true"><div class="${X_BUTTON}">X</div>` +
+  // Icon
 
-  `<div class="${X_BUTTON}">X</div>` +
-    // Icon
+  // Title
 
-    // Title
+  // Text
 
-    // Text
-  
-    // Content
-  
-    // Buttons
+  // Content
 
- `</div>`
+  // Buttons
+
+  `</div>`
 ;
 
 export default modalMarkup;
