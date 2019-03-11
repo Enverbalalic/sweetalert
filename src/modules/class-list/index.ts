@@ -21,6 +21,7 @@ export const CLASS_NAMES: ClassNameList = {
   MODAL_TEXT: `swal-text`,
   ICON,
   ICON_CUSTOM: `${ICON}--custom`,
+  X_BUTTON: "top-right-close",
 
   CONTENT: 'swal-content',
 

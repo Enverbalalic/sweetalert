@@ -62,6 +62,20 @@
   z-index: 10001;
   transition: transform 0.3s, opacity 0.2s;
 
+  .top-right-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    height: 20px;
+    color: gray;
+    z-index: 1000;
+    width: 20px;
+    font-size: 16px;
+    visibility: visible;
+    display: block;
+    cursor: pointer;
+  }
+
   @media all and (max-width: 500px) {
     width: calc(100% - 20px);
   }
