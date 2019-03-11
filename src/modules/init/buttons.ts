@@ -8,7 +8,7 @@ const { BUTTON, DANGER_BUTTON } = CLASS_NAMES;
 import { ButtonList, ButtonOptions, CONFIRM_KEY } from '../options/buttons';
 import { footerMarkup, buttonMarkup } from '../markup';
 
-import { onAction } from '../actions';
+import { hideModal, onAction } from '../actions';
 import {
   setActionValue,
   setActionOptionsFor,
@@ -94,7 +94,8 @@ const initButtons = (buttons: ButtonList, dangerMode: boolean): void => {
 };
 
 export const initTopRightCloseButton = (opts: SwalOptions) => {
-  const topRightButtonEl: Element = injectElIntoModal(`<div class="${CLASS_NAMES.X_BUTTON}" onclick="hideModal()">X</div>`);
+  const topRightButtonEl: HTMLElement = injectElIntoModal(`<div class="${CLASS_NAMES.X_BUTTON}" onclick="hideModal()">X</div>`);
+  topRightButtonEl.onclick = hideModal;
 };
 
 export default initButtons;

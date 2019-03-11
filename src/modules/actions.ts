@@ -19,7 +19,7 @@ export const openModal = (): void => {
   state.isOpen = true;
 };
 
-const hideModal = (): void => {
+export const hideModal = (): void => {
   let overlay = getNode(OVERLAY);
   overlay.classList.remove(SHOW_MODAL); 
 
