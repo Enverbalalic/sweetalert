@@ -94,7 +94,7 @@ const initButtons = (buttons: ButtonList, dangerMode: boolean): void => {
 };
 
 export const initTopRightCloseButton = (opts: SwalOptions) => {
-  const topRightButtonEl: Element = injectElIntoModal(`<div class="${CLASS_NAMES.X_BUTTON}">X</div>`);
+  const topRightButtonEl: Element = injectElIntoModal(`<div class="${CLASS_NAMES.X_BUTTON}" onclick="hideModal()">X</div>`);
 };
 
 export default initButtons;
