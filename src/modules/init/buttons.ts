@@ -2,6 +2,7 @@ import { stringToNode } from '../utils';
 import { injectElIntoModal } from './modal';
 
 import CLASS_NAMES from '../class-list';
+
 const { BUTTON, DANGER_BUTTON } = CLASS_NAMES;
 
 import { ButtonList, ButtonOptions, CONFIRM_KEY } from '../options/buttons';
@@ -13,6 +14,7 @@ import {
   setActionOptionsFor,
   ActionOptions,
 } from '../state';
+import { SwalOptions } from '../options';
 
 /*
  * Generate a button, with a container element,
@@ -89,6 +91,10 @@ const initButtons = (buttons: ButtonList, dangerMode: boolean): void => {
   if (footerEl.children.length === 0) {
     footerEl.remove();
   }
+};
+
+export const initTopRightCloseButton = (opts: SwalOptions) => {
+  const topRightButtonEl: Element = injectElIntoModal(`<div class="${CLASS_NAMES.X_BUTTON}">X</div>`);
 };
 
 export default initButtons;

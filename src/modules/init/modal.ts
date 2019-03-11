@@ -4,11 +4,12 @@ import { modalMarkup } from '../markup';
 import { SwalOptions } from '../options';
 
 import CLASS_NAMES from '../class-list';
+
 const { MODAL, OVERLAY } = CLASS_NAMES;
 
 import initIcon from './icon';
 import { initTitle, initText } from './text';
-import initButtons from './buttons';
+import initButtons, { initTopRightCloseButton } from './buttons';
 import initContent from './content';
 
 export const injectElIntoModal = (markup: string): HTMLElement => {
@@ -51,6 +52,7 @@ export const initModalContent = (opts: SwalOptions): void => {
   const modal: Element = getNode(MODAL);
   customizeModalElement(modal, opts);
 
+  initTopRightCloseButton(opts);
   initIcon(opts.icon);
   initTitle(opts.title);
   initText(opts.text);
