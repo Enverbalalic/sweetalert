@@ -52,7 +52,9 @@ export const initModalContent = (opts: SwalOptions): void => {
   const modal: Element = getNode(MODAL);
   customizeModalElement(modal, opts);
 
-  initTopRightCloseButton(opts);
+  if (opts.closeOnTopRight) {
+    initTopRightCloseButton();
+  }
   initIcon(opts.icon);
   initTitle(opts.title);
   initText(opts.text);

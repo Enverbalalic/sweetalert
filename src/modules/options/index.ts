@@ -9,7 +9,7 @@ import {
 import {
   ButtonList,
   getButtonListOpts,
-  defaultButtonList
+  defaultButtonList,
 } from './buttons';
 
 import {
@@ -35,6 +35,7 @@ export interface SwalOptions {
   className: string,
   closeOnClickOutside: boolean,
   closeOnEsc: boolean,
+  closeOnTopRight: boolean;
   dangerMode: boolean,
   timer: number,
 };
@@ -47,6 +48,7 @@ const defaultOpts: SwalOptions = {
   content: null,
   className: null,
   closeOnClickOutside: true,
+  closeOnTopRight: false,
   closeOnEsc: true,
   dangerMode: false,
   timer: null,
@@ -67,7 +69,7 @@ export const setDefaults = (opts: object): void => {
  * we need to make sure we pick one of the options
  */
 const pickButtonParam = (opts: any): object => {
-  const singleButton: string|object = opts && opts.button;
+  const singleButton: string | object = opts && opts.button;
   const buttonList: object = opts && opts.buttons;
 
   if (singleButton !== undefined && buttonList !== undefined) {
@@ -115,7 +117,7 @@ const expectNothingAfter = (index: number, allParams: SwalParams): void => {
 const paramToOption = (opts: any, param: any, index: number, allParams: SwalParams): object => {
 
   const paramType = (typeof param);
-  const isString = (paramType === "string");
+  const isString = (paramType === 'string');
   const isDOMNode = (param instanceof Element);
 
   if (isString) {
@@ -124,47 +126,35 @@ const paramToOption = (opts: any, param: any, index: number, allParams: SwalPara
       return {
         text: param,
       };
-    }
-
-    else if (index === 1) {
+    } else if (index === 1) {
       // Example: swal("Wait!", "Are you sure you want to do this?");
       // (The text is now the second argument)
       return {
         text: param,
         title: allParams[0],
       };
-    }
-
-    else if (index === 2) {
+    } else if (index === 2) {
       // Example: swal("Wait!", "Are you sure?", "warning");
       expectOptionsOrNothingAfter(index, allParams);
 
       return {
         icon: param,
       };
-    }
-
-    else {
+    } else {
       invalidParam(param, index);
     }
-  }
-
-  else if (isDOMNode && index === 0) {
+  } else if (isDOMNode && index === 0) {
     // Example: swal(<DOMNode />);
     expectOptionsOrNothingAfter(index, allParams);
 
     return {
       content: param,
     };
-  }
-
-  else if (isPlainObject(param)) {
+  } else if (isPlainObject(param)) {
     expectNothingAfter(index, allParams);
 
     return param;
-  }
-
-  else {
+  } else {
     invalidParam(param, index);
   }
 

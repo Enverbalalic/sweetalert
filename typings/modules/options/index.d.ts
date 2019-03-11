@@ -9,6 +9,7 @@ export interface SwalOptions {
     className: string;
     closeOnClickOutside: boolean;
     closeOnEsc: boolean;
+    closeOnTopRight: boolean;
     dangerMode: boolean;
     timer: number;
 }
