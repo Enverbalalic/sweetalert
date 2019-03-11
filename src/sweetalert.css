@@ -62,7 +62,7 @@
   z-index: 10001;
   transition: transform 0.3s, opacity 0.2s;
 
-  .top-right-close {
+  & .top-right-close {
     position: absolute;
     top: 20px;
     right: 20px;
