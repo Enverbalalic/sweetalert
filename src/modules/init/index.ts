@@ -27,7 +27,7 @@ export const init = (opts: SwalOptions): void => {
     initOverlayOnce();
     initModalOnce();
   }
-  
+
   initModalContent(opts);
   addEventListeners(opts);
 };
